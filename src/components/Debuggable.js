@@ -4,7 +4,7 @@ function Debuggable (
   WrappedComponent,
   options = { willMount: true, render: true }
 ) {
-  // return WrappedComponent
+  return WrappedComponent
   const name = WrappedComponent.name
   const { willMount, render: trackRender, didUpdate } = Object.assign(
     {},
