@@ -4,7 +4,7 @@ function Debuggable (
   WrappedComponent,
   options = { willMount: true, render: true }
 ) {
-  return WrappedComponent
+  // return WrappedComponent
   const name = WrappedComponent.name
   const { willMount, render: trackRender, didUpdate } = Object.assign(
     {},
@@ -39,7 +39,8 @@ function Debuggable (
       return super.render()
     }
   }
-  newComponent.displayName = (WrappedComponent.displayName || WrappedComponent.name) + '(d)'
+  newComponent.displayName =
+    (WrappedComponent.displayName || WrappedComponent.name) + '(d)'
   return newComponent
 }
 
