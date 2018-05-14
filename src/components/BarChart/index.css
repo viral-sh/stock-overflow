@@ -1,0 +1,89 @@
+.bar-chart-box {
+  /* background-color: #2e2e2e */
+}
+
+.graph-wrapper,
+.bar-list,
+.bar-wrapper
+{
+  height: 100%;
+}
+.bar-wrapper  {
+  height: 200px;
+  display: inline-flex;
+  vertical-align: bottom;
+  position: relative;
+  flex-direction: column-reverse;
+  flex-grow: 1;
+}
+.bar-list {
+  text-overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bar {
+  display: flex;
+  padding: 0px;
+  width: 25px;
+  transition: height 0.5s ease-in-out;
+}
+
+.bar-wrapper:hover .bar{
+  opacity: 1;
+  z-index: 2;
+  border: 1px solid red;
+}
+
+.bar {
+  opacity: 1;
+  animation: barAnimate 1.5s;
+  border: 1px solid transparent;
+  margin: 0px 1px;
+}
+
+@keyframes barAnimate {
+  from {
+    opacity: 0.7;
+    height: 0%;
+    vertical-align: bottom;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tooltipAnimate {
+  from {
+    opacity: 0.7;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.bar-wrapper .bar-tooltip {
+  display: none;
+  z-index: 10;
+  left: 0;
+  margin-bottom: 20px;
+}
+
+.bar-wrapper:hover .bar-tooltip {
+  display: block;
+  animation: tooltipAnimate 0.3s;
+}
+
+.bar-tooltip .card {
+  margin-bottom: 0px;
+}
+
+.bar-tooltip .card .card-content {
+  padding: 12px;
+}
+
+.bar-tooltip .card .card-content * {
+  white-space: nowrap;
+}

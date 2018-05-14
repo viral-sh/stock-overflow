@@ -1,0 +1,160 @@
+.App {
+  text-align: left;
+  background-color: #f6f4f1;
+  min-height: 100vh;
+}
+
+.App-logo {
+  height: 40px;
+}
+
+.App-header {
+  color: white;
+}
+
+.App-header nav {
+  background-color: white !important;
+  padding: 10px;
+}
+
+.App-header .user-info {
+  padding: 10px;
+  height: 65px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.App-header .user-info .user-name {
+  margin-right: 10px;
+  font-style: italic;
+}
+
+.App-header .user-info img {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+
+.App-title {
+  font-size: 20px;
+  color: #009688;
+  line-height: 22px;
+  position: absolute;
+  left: 50px;
+  text-transform: capitalize;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.summary-container {
+  min-height: 130px;
+  margin-bottom: -5px;
+  margin-top: 5px;
+}
+
+.summary-container .markets {
+  display: flex;
+  align-items: flex-end;
+}
+
+.summary-container .markets .card {
+  display: flex;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+@media only screen and (min-width: 993px) {
+  .summary-container .markets {
+    display: inline-block;
+  }
+
+  .summary-container .markets .card {
+    float: right;
+    flex-grow: 0;
+  }
+}
+
+.summary-container .holdings .card {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.stock-component {
+  background: white;
+  min-height: 450px;
+  box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 -3px 1px -2px rgba(0, 0, 0, 0.12), 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.summary-container .card .card-content {
+  min-width: 240px;
+}
+
+.summary-container .card .card-content .card-title {
+  color: #78909c;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.summary-container  .card .card-content p {
+  color: #263238;
+  font-size: 22px;
+  line-height: 24px;
+}
+
+.bar-chart-box {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.gain {
+  color: #8BC34A;
+}
+
+.loss {
+  color: red;
+}
+
+.currency::before {
+  content: '₹ ';
+  font-size: 0.8em;
+}
+
+.gain::before {
+  content: ' \25B2';
+}
+
+.loss::before {
+  content: ' \25BC';
+}
+
+.percent::after {
+  content: '%';
+}
+
+.subtext {
+  font-size: 0.8em;
+}
+
+.switch span {
+  font-size: 1rem;
+  line-height: 25px;
+}
+.stock-view-action {
+  height: 50px;
+  padding: 10px;
+}
