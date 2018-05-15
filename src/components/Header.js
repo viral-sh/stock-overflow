@@ -12,7 +12,7 @@ class Header extends Component {
         <nav>
           <div className='brand-logo'>
             <img src='/logo-sm.png' className='App-logo' alt='logo' />
-            <span className='App-title green-text text-darken-2'>
+            <span className='App-title green-text text-darken-2  hide-on-small-only'>
               Stock Overflow
             </span>
           </div>

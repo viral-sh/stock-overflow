@@ -87,7 +87,12 @@
     flex-grow: 0;
   }
 }
-
+@media only screen and (max-width: 600px) {
+  .summary-container .markets .card {
+    width: 100%;
+    display: block;
+  }
+}
 .summary-container .holdings .card {
   width: 100%;
   margin-bottom: 0.5rem;
