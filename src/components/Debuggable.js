@@ -1,46 +1,42 @@
 /* eslint-disable no-unreachable */
 
-function Debuggable (
-  WrappedComponent,
-  options = { willMount: true, render: true }
-) {
-  return WrappedComponent
-  const name = WrappedComponent.name
-  const { willMount, render: trackRender, didUpdate } = Object.assign(
+function Debuggable (WrappedComponent, options = {}) {
+  // return WrappedComponent
+  const key = WrappedComponent.name
+  const optionDefaults = { didMount: true, render: true, didUpdate: true }
+  const incrementCount = window.incrementCount
+  const { didMount, render: trackRender, didUpdate } = Object.assign(
     {},
-    { willMount: true, render: true, didUpdate: true },
+    optionDefaults,
     options
   )
   const newComponent = class Debuggable extends WrappedComponent {
-    componentWillMount () {
+    componentDidMount () {
       if (super.componentWillMount) {
-        super.componentWillMount()
+        super.componentWillMount(arguments)
       }
-      if (willMount) {
-        window.incrementCount(name, 'componentWillMount')
+      if (didMount) {
+        incrementCount(key, 'componentDidMount')
       }
     }
 
     componentDidUpdate () {
       if (super.componentDidUpdate) {
-        super.componentDidUpdate()
+        super.componentDidUpdate(arguments)
       }
       if (didUpdate) {
-        window.incrementCount(name, 'componentDidUpdate')
+        incrementCount(key, 'componentDidUpdate')
       }
     }
 
     render () {
       if (trackRender) {
-        window.incrementCount(name, 'render')
+        incrementCount(key, 'render')
       }
-      // Wraps the input component in a container, without mutating it. Good!
-      // return <WrappedComponent {...this.props} />
       return super.render()
     }
   }
-  newComponent.displayName =
-    (WrappedComponent.displayName || WrappedComponent.name) + '(d)'
+  newComponent.displayName = `${WrappedComponent.displayName || WrappedComponent.name} (D)`
   return newComponent
 }
 

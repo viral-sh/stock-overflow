@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Debuggable from './Debuggable'
 
-class Switch extends Component {
+class Switch extends PureComponent {
   render () {
     const { label, checked, onChange } = this.props
     return (

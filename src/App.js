@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// import ReactDOM from 'react-dom'
 /* eslint-disable-next-line */
 
 import './App.css'
@@ -74,3 +75,13 @@ class App extends Component {
 }
 
 export default App
+
+/*
+  // Async setState
+  ReactDOM.unstable_deferredUpdates(() => {
+    this.setState({
+      stocksData,
+      markets
+    })
+  })
+*/
