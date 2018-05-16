@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 import BarChart from '../components/BarChart'
 import Grid from '../components/Grid'
 import Switch from './Switch'
-import Debuggable from './Debuggable'
+// import Debuggable from './Debuggable'
+import Debuggable, { debugStart, debugEnd } from './Debuggable'
 
 class StocksPage extends Component {
   constructor (props) {
@@ -15,11 +16,16 @@ class StocksPage extends Component {
     }
   }
 
+  componentDidUpdate () {
+    debugEnd()
+  }
+
   selectView = view => {
     this.setState({ view })
   }
 
   toggleMyStocksFilter = () => {
+    debugStart()
     this.setState({
       myStocksFilter: !this.state.myStocksFilter
     })

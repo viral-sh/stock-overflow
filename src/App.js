@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom'
 /* eslint-disable-next-line */
 
 import './App.css'

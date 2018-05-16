@@ -5,8 +5,7 @@ import './index.css'
 
 import { keyBy } from 'lodash'
 import { roundUp } from '../../utils'
-import Debuggable from '../Debuggable'
-// import Debuggable, { debugStart, debugEnd } from '../Debuggable'
+import Debuggable, { debugStart, debugEnd } from '../Debuggable'
 
 class BarChart extends Component {
   constructor (props) {
@@ -32,6 +31,10 @@ class BarChart extends Component {
     return false
   }
 
+  componentDidUpdate () {
+    // debugEnd()
+  }
+
   getYAxisRange (data) {
     if (!data || !data.length) {
       return [0, 0]
@@ -47,6 +50,7 @@ class BarChart extends Component {
     const { data } = this.state
     delete data[symbol]
     this.setState({ data: { ...data } })
+    // debugStart()
   }
 
   calcHeight = val => {

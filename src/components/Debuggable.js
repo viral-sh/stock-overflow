@@ -3,9 +3,9 @@
 function Debuggable (WrappedComponent, options = {}) {
   // return WrappedComponent
   const key = WrappedComponent.name
-  const optionDefaults = { didMount: true, render: true, didUpdate: true }
+  const optionDefaults = { didMount: true, render: true, didUpdate: true, willUnmount: true }
   const incrementCount = window.incrementCount
-  const { didMount, render: trackRender, didUpdate } = Object.assign(
+  const { didMount, render: trackRender, didUpdate, willUnmount } = Object.assign(
     {},
     optionDefaults,
     options
@@ -26,6 +26,15 @@ function Debuggable (WrappedComponent, options = {}) {
       }
       if (didUpdate) {
         incrementCount(key, 'componentDidUpdate')
+      }
+    }
+
+    componentWillUnmount () {
+      if (super.componentWillUnmount) {
+        super.componentWillUnmount(arguments)
+      }
+      if (willUnmount) {
+        incrementCount(key, 'componentWillUnmount')
       }
     }
 

@@ -41,12 +41,12 @@ function toggleRotatingLogo () {
 
   const boxEl = document.getElementsByClassName('App-logo')[0]
   const start = window.performance.now()
-  function renderBox () {
+  function rotateBox () {
     if (!spinEnabled) return
     const elapsed = window.performance.now() - start
     const rotation = elapsed / 3 % 360
     boxEl.style.transform = `rotate(${rotation}deg)`
-    window.requestAnimationFrame(renderBox)
+    window.requestAnimationFrame(rotateBox)
   }
-  window.requestAnimationFrame(renderBox)
+  window.requestAnimationFrame(rotateBox)
 }
