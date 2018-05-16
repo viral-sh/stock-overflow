@@ -3,14 +3,20 @@ import React, { Component } from 'react'
 import Debuggable from './Debuggable'
 
 class Header extends Component {
+
   shouldComponentUpdate () {
     return false
   }
+
+  handleLogoClick () {
+    toggleRotatingLogo()
+  }
+
   render () {
     return (
       <header className='App-header navbar-fixed lighten-2'>
         <nav>
-          <div className='brand-logo'>
+          <div className='brand-logo' onClick={this.handleLogoClick}>
             <img src='/logo-sm.png' className='App-logo' alt='logo' />
             <span className='App-title green-text text-darken-2  hide-on-small-only'>
               Stock Overflow
@@ -28,3 +34,19 @@ class Header extends Component {
   }
 }
 export default Debuggable(Header)
+
+let spinEnabled = false
+function toggleRotatingLogo () {
+  spinEnabled = !spinEnabled
+
+  const boxEl = document.getElementsByClassName('App-logo')[0]
+  const start = window.performance.now()
+  function renderBox () {
+    if (!spinEnabled) return
+    const elapsed = window.performance.now() - start
+    const rotation = elapsed / 3 % 360
+    boxEl.style.transform = `rotate(${rotation}deg)`
+    window.requestAnimationFrame(renderBox)
+  }
+  window.requestAnimationFrame(renderBox)
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import BarChart from '../components/BarChart'
 import Grid from '../components/Grid'
@@ -93,3 +94,10 @@ StocksPage.propTypes = {
 }
 
 export default Debuggable(StocksPage)
+
+// Set state using new experimental Suspense API
+// ReactDOM.unstable_deferredUpdates(() => {
+//   this.setState({
+//     myStocksFilter: !this.state.myStocksFilter
+//   })
+// })

@@ -9,7 +9,7 @@ import { getAllStocksData } from './service'
 import StocksPage from './components/StocksPage'
 // import './awesome-stuff'
 
-// import { debugStart, debugEnd } from './components/Debuggable'
+import { debugStart, debugEnd } from './components/Debuggable'
 
 class App extends Component {
   constructor (props) {
@@ -25,12 +25,12 @@ class App extends Component {
     this.toggleLiveStreaming()
   }
 
-  // componentWillUpdate () {
-  //   debugStart()
-  // }
-  // componentDidUpdate () {
-  //   debugEnd()
-  // }
+  componentWillUpdate () {
+    debugStart()
+  }
+  componentDidUpdate () {
+    debugEnd()
+  }
 
   toggleLiveStreaming = () => {
     const liveStream = !this.state.liveStream
