@@ -63,7 +63,6 @@ class BarChart extends Component {
     const { data = [] } = this.state
     return (
       <div className='bar-chart-box'>
-        <title className='chart-title'>BarChartBox</title>
         <div className='graph-wrapper'>
           <ul className='bar-list'>
             {Object.values(data).map(([key, growth, value, item], index) => (
