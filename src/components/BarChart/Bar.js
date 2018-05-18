@@ -5,21 +5,13 @@ import Currency from '../Currency'
 import Gain from '../Gain'
 import Debuggable from '../Debuggable'
 
-// const getRandom = (min = 0, max = 100) => {
-//   return Math.floor(Math.random() * max) + min
-// }
-
-// const getRandomColor = () => `rgb(${getRandom(0, 255)}, ${getRandom(0, 255)}, ${getRandom(0, 255)})`
-
 const getColor = intensity =>
   `hsl(${intensity > 0 ? 120 + intensity : 60 + intensity}, 50%, 50%)`
 
 class Bar extends PureComponent {
   render () {
     const { growth, value, quantity = 0, onClick, symbol, barHeight } = this.props
-    if (typeof value === 'string') {
-      console.log(this.props)
-    }
+
     return (
       <span className='bar-wrapper'>
         <span
