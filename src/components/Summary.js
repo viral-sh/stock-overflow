@@ -44,15 +44,15 @@ class Summary extends Component {
             className='left1'
             key='holdings'
           >
-            <Currency>{totalValue}</Currency>
-            <Gain percent>{totalGrowth}</Gain>
+            <Currency value={totalValue} />
+            <Gain percent value={totalGrowth} />
           </Card>
         </div>
         <div className='markets col l9 m12 s12'>
           {markets.map(({ key, label, value, growth }) => (
             <Card title={label} className='right2' key={key}>
-              <Currency>{value}</Currency>
-              <Gain percent>{growth}</Gain>
+              <Currency value={value} />
+              <Gain percent value={growth} />
             </Card>
           ))}
         </div>

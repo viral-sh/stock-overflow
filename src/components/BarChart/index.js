@@ -68,7 +68,7 @@ class BarChart extends Component {
           <ul className='bar-list'>
             {Object.values(data).map(([key, growth, value, item], index) => (
               <Bar
-                key={key}
+                key={index}
                 growth={growth}
                 value={value}
                 symbol={key}

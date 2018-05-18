@@ -7,7 +7,6 @@ import Header from './components/Header'
 import Summary from './components/Summary'
 import { getAllStocksData } from './service'
 import StocksPage from './components/StocksPage'
-// import './awesome-stuff'
 
 import { debugStart, debugEnd } from './components/Debuggable'
 

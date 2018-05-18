@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import BarChart from '../components/BarChart'
-import Grid from '../components/Grid'
 import Switch from './Switch'
 // import Debuggable from './Debuggable'
 import Debuggable, { debugStart, debugEnd } from './Debuggable'
@@ -11,21 +10,16 @@ class StocksPage extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      view: 'graph',
       myStocksFilter: true
     }
   }
 
   componentDidUpdate () {
-    debugEnd()
-  }
-
-  selectView = view => {
-    this.setState({ view })
+    // debugEnd()
   }
 
   toggleMyStocksFilter = () => {
-    debugStart()
+    // debugStart()
     this.setState({
       myStocksFilter: !this.state.myStocksFilter
     })
@@ -42,7 +36,7 @@ class StocksPage extends Component {
   }
 
   render () {
-    const { view, myStocksFilter } = this.state
+    const { myStocksFilter } = this.state
     const { isLivestreamOn, onToggleLiveStream } = this.props
     const data = this.getStocksData()
     return (
@@ -79,15 +73,9 @@ class StocksPage extends Component {
             </label>
 
           </div>
-          {/* <div className='right' onClick={() => this.selectView('grid')}>
-            Grid
-          </div>
-          <div className='right' onClick={() => this.selectView('graph')}>
-            Graph
-          </div> */}
         </div>
         <div className='divider' />
-        {view === 'grid' ? <Grid data={data} /> : <BarChart data={data} />}
+        <BarChart data={data} />
       </div>
     )
   }

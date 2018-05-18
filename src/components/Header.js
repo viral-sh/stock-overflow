@@ -4,10 +4,6 @@ import Debuggable from './Debuggable'
 
 class Header extends Component {
 
-  shouldComponentUpdate () {
-    return false
-  }
-
   handleLogoClick () {
     toggleRotatingLogo()
   }
