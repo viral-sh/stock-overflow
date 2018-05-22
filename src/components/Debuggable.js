@@ -61,6 +61,8 @@ export const debugEnd = () => {
   window.dd()
 }
 
+// TODO: move this to local variables and create a new library for this
+
 window.debugCounts = {}
 
 window.incrementCount = (key, event) => {

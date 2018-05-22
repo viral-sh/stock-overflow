@@ -50,6 +50,7 @@ class StocksPage extends Component {
             />
           </div>
           <div className='left'>
+            {/** TODO: move this to another component */}
             <label>
               <input
                 className='with-gap'

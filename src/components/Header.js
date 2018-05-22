@@ -8,6 +8,10 @@ class Header extends Component {
     toggleRotatingLogo()
   }
 
+  shouldComponentUpdate () {
+    return false
+  }
+
   render () {
     return (
       <header className='App-header navbar-fixed lighten-2'>
@@ -31,6 +35,7 @@ class Header extends Component {
 }
 export default Debuggable(Header)
 
+// For testing React 16 Fiber performance.
 let spinEnabled = false
 function toggleRotatingLogo () {
   spinEnabled = !spinEnabled
